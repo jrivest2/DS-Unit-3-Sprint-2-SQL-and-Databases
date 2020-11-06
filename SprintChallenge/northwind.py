@@ -50,14 +50,13 @@ LIMIT 10;
 print(execute_query(curs,query3))
 
 # What is the largest category (by number of unique products in it)?
-
-# What is the largest category (by number of unique products in it)?
 query4 = """
 SELECT Category.CategoryName, COUNT(*)
 FROM Product
 LEFT JOIN Category
 ON Product.CategoryId = Category.Id
-WHERE Category.CategoryName = 'Confections'
-ORDER BY Category.CategoryName;
+Group BY Category.CategoryName
+ORDER BY COUNT(*) DESC
+LIMIT 1;
 """
 print(execute_query(curs,query4))
