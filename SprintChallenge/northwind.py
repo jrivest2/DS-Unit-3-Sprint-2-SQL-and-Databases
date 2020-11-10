@@ -19,6 +19,20 @@ LIMIT 10;
 """
 print(execute_query(curs,query1))
 
+# Output:
+"""
+[(38, 'Côte de Blaye', 263.5),
+ (29, 'Thüringer Rostbratwurst', 123.79),
+ (9, 'Mishi Kobe Niku', 97),
+ (20, "Sir Rodney's Marmalade", 81),
+ (18, 'Carnarvon Tigers', 62.5),
+ (59, 'Raclette Courdavault', 55),
+ (51, 'Manjimup Dried Apples', 53), 
+ (62, 'Tarte au sucre', 49.3), 
+ (43, 'Ipoh Coffee', 46), 
+ (28, 'Rössle Sauerkraut', 45.6)]
+"""
+
 # What is the average age of an employee at the time of their hiring? (Hint: a
 # lot of arithmetic works with dates.)
 
@@ -31,8 +45,10 @@ SELECT((SELECT AVG(HireDate)
 """
 print(execute_query(curs,query2)[0][0])
 
-# STRETCH GOAL FOR PART 2
-# How does the average age of employee at hire vary by city?
+# Output:
+"""
+37.22222222222217
+"""
 
 # PART 3
 
@@ -49,6 +65,20 @@ LIMIT 10;
 """
 print(execute_query(curs,query3))
 
+# Output:
+"""
+[(38, 'Côte de Blaye', 263.5, 'Aux joyeux ecclésiastiques'), 
+(29, 'Thüringer Rostbratwurst', 123.79, 'Plutzer Lebensmittelgroßmärkte AG'), 
+(9, 'Mishi Kobe Niku', 97, 'Tokyo Traders'), 
+(20, "Sir Rodney's Marmalade", 81, 'Specialty Biscuits, Ltd.'), 
+(18, 'Carnarvon Tigers', 62.5, 'Pavlova, Ltd.'), 
+(59, 'Raclette Courdavault', 55, 'Gai pâturage'), 
+(51, 'Manjimup Dried Apples', 53, "G'day, Mate"), 
+(62, 'Tarte au sucre', 49.3, "Forêts d'érables"), 
+(43, 'Ipoh Coffee', 46, 'Leka Trading'), 
+(28, 'Rössle Sauerkraut', 45.6, 'Plutzer Lebensmittelgroßmärkte AG')]
+"""
+
 # What is the largest category (by number of unique products in it)?
 query4 = """
 SELECT Category.CategoryName, COUNT(*)
@@ -60,3 +90,8 @@ ORDER BY COUNT(*) DESC
 LIMIT 1;
 """
 print(execute_query(curs,query4))
+
+# Output:
+"""
+[('Confections', 13)]
+"""

@@ -1,5 +1,6 @@
 import sqlite3
 # PART 1
+# Create database
 conn = sqlite3.connect('demo_data.sqlite3')
 curs = conn.cursor()
 
